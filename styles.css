@@ -1,3 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+body {
+  background: #dcdcdc;
+  font-family: "Roboto", sans-serif;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+/* .text-grey {
+  color: lightgrey;
+} */
+.cursor-pointer {
+  cursor: pointer;
+}
+.calendar {
+  margin: auto;
+  background: white;
+  width: 100%;
+  max-width: 1020px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  overflow: hidden;
+}
 
-hello
-hello
+/*LEFT SIDE*/
+span {
+  font-size: 20px;
+}
+li {
+  list-style: none;
+  color: white;
+}
+button {
+  position: absolute;
+  float: left;
+  height: 25px;
+  width: 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 50%;
+  /* box-shadow: 5px 5px 2px grey; */
+}
+#current-day,
+#current-date,
+#current-month,
+#current-time {
+  color: white;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+}
+.calendar-left-side-day,
+.calendar-left-side-day-of-week,
+.calendar-left-side-date,
+.current-day-todos,
+.add-todo-day-field,
+h1 {
+  color: white;
+}
+.calendar-left-side-day-of-week {
+  text-transform: uppercase;
+}
+.left-side {
+  width: 340px;
+  background: #703fca;
+  float: left;
+  padding: 30px;
+  height: 100%;
+}
+.current-day,
+.current-day-todos {
+  padding-top: 15px;
+  margin: 5px;
+  /*lägg till så att listan kan bli skrollbar*/
+}
+.current-day-todos {
+  height: 300px;
+}
+.add-todo-day {
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+}
+.add-todo-day-field {
+  border: none;
+  background: transparent;
+  height: 34px;
+  width: 100%;
+  font-size: 16px;
+  padding-right: 30px;
+}
+.add-todo-day-field:focus,
+button:focus {
+  outline: none;
+}
+.add-todo-day-field::placeholder {
+  color: white;
+}
+
+/* RIGHT SIDE*/
+.right-side {
+  max-width: 675px;
+  float: right;
+  padding: 10px;
+  height: 100%;
+}
+main {
+  /* max-width: max-content; */
+  margin: 0 auto 0 auto;
+  background-color: #fff;
+}
+.month-indicator {
+  margin-top: 10px;
+  color: black;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+.month-of-year {
+  font-size: 0.1em;
+  color: black;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  text-align: center;
+}
+.month-of-year {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-top: 10px;
+}
+.day-of-week,
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.day-of-week {
+  margin-top: 10px;
+  /* border-bottom: 1px solid black; */
+}
+.day-of-week > * {
+  font-size: 1em;
+  color: black;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  text-align: center;
+}
+.date-grid {
+  margin-top: 0.5em;
+}
+/* Which cell as the months first day starts */
+.date-grid div:first-child {
+  grid-column: 7;
+}
+.date-grid div {
+  position: relative;
+  border: 1px solid grey;
+  margin: 1px;
+  width: 90px;
+  height: 65px;
+  background-color: transparent;
+  color: black;
+}
+.date-grid div:hover,
+.date-grid div:focus {
+  /* outline: none; */
+  background-color: rgb(156, 198, 253);
+  color: black;
+}
+.date-grid div:active,
+.date-grid div.is-selected {
+  background-color: #703fca;
+  color: #703fca;
+}
+.calendar-days li:after {
+  content: attr(data-day);
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: #959595;
+}
+.calendar-days li.another-month:after {
+  color: #ccc;
+}
+.calendar-days li:hover:after,
+.calendar-days li.selected-day:after,
+.calendar-days li.todo-day:before,
+.calendar-days li.active-day:after {
+  border-radius: 50%;
+}
+.calendar-days li:hover:after,
+.calendar-days li.selected-day:after {
+  background: #ccc;
+  color: white;
+}
+.calendar-days li.todo-day:before {
+  content: " ";
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  background: #1400c7;
+}
+.calendar-days li.active-day:after {
+  color: white;
+  background: #6f2da8;
+}
+
+/* color: white finns på många ställen och kan omstruktureras och tas bort på många ställen  */
+/* hightlighta aktuell månad, veckodag och cell */
