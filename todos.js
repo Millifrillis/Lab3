@@ -4,7 +4,7 @@ let currentDay = new Date();
 document.getElementById("current-day").innerHTML = currentDay.getDay();
 
 let currentDayArray = new Date();
-let days = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
+let days = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
 document.getElementById("current-day").innerHTML = days[currentDay.getDay()];
 
 let currentHour = new Date();
@@ -23,35 +23,7 @@ let currentMonthArray = new Date();
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 document.getElementById("current-month").innerHTML = months[currentMonth.getMonth()];
 
-function UpdateTime(){
-        
-    let today = new Date();
-    let hour = today.getHours();
-    let mins = today.getMinutes();
 
-    if (mins <=9){
-        mins = "0" + mins
-    }
-
-    let TotalTime = hour + ":" + mins;
-
-    if (document.layers) { 
-        document.layers.time.document.write(TotalTime); 
-        document.layers.time.document.close(); 
-    }
-    else if (document.all) { 
-        time.innerHTML = TotalTime; 
-    } 
-
-    setTimeout("UpdateTime()", 1000) 
-}
-
-// The toDateString() method converts a date to a more readable format:
-// let d = new Date();
-// document.getElementById("demo").innerHTML = d.toDateString();
-
-// let currentYear = new Date();
-// document.getElementById("current-year").innerHTML = currentYear.getFullYear();
 
 
 function loadSite() {
@@ -65,30 +37,64 @@ function addTodoListener(event) {
     // Create and add list item (li) to list (ul)
     showTodoOnScreen(input.value)
 
-    // Clear the input field
     input.value = ""
+
+    todoArray.push(addTodo);
 }
+
 function removeTodoListener(event) {
     const li = event.target.parentElement
     li.remove()
 }
 
 function showTodoOnScreen(todoText) {
-    // Create an li element 
     const li = document.createElement('li')
-
-    // Create a checkbox
     const checkbox = document.createElement('input')
     checkbox.type = 'checkbox'
     checkbox.addEventListener('click', removeTodoListener)
 
-    // Add the checkbox and todo text to the list item
-    li.append(checkbox, todoText)
+    li.append(checkbox, todoText,)
 
     // Add li to ul
     document.querySelector('ul').append(li)
 }
 
-// Lägg till så att det går att skrolla i todolistan om det finns många todos
-// Lägg till så att alla dagars todo listas under varandra i mobilvy 
-// Hightlighta aktuell månad, veckodag och cell 
+
+
+// let todoArray = [];
+
+// const addTodos = (ev)=>{
+//     ev.preventDefault();
+//     let todo = {
+//         date: document.getElementById('add-date').value,
+//         todo: document.getElementById('add-todo').value
+//         }
+//         todoArray.push(todo);
+//         document.querySelector('form').reset();
+        
+//         //saving to localStorage
+//         localStorage.setItem('MyTodoList', JSON.stringify(todoArray) );
+//     }
+//     document.addEventListener('DOMContentLoaded', ()=>{
+//         document.getElementById('button').addEventListener('click', addTodos);
+//     });
+
+
+
+
+var todoList = document.getElementById("add-todo");
+localStorage.setItem("todoArray", todoList.value);
+
+
+function store(){
+    var todoList= document.getElementById("add-todo");
+    localStorage.setItem("todoArray", todoList.value);
+   }
+
+   function saveSettings() {
+    localStorage.settings = JSON.stringify(settings)
+}
+
+function readSettings() {
+    const settings = JSON.parse(localStorage.settings)    
+}
