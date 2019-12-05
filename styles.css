@@ -25,8 +25,9 @@ body {
 .calendar {
   margin: auto;
   background: white;
+  height: 100vh;
   width: 100%;
-  max-width: 1020px;
+  /* max-width: 1020px; */
   border-radius: 10px;
   border: 1px solid grey;
   overflow: hidden;
@@ -35,23 +36,6 @@ body {
 /*LEFT SIDE*/
 span {
   font-size: 20px;
-}
-li {
-  list-style: none;
-  color: white;
-}
-button {
-  position: absolute;
-  float: left;
-  height: 25px;
-  width: 25px;
-  font-size: 20px;
-  font-weight: 500;
-  border: 2px solid white;
-  background-color: transparent;
-  color: white;
-  border-radius: 50%;
-  /* box-shadow: 5px 5px 2px grey; */
 }
 #current-day,
 #current-date,
@@ -73,7 +57,7 @@ h1 {
   text-transform: uppercase;
 }
 .left-side {
-  width: 340px;
+  width: 35%;
   background: #703fca;
   float: left;
   padding: 30px;
@@ -81,19 +65,40 @@ h1 {
 }
 .current-day,
 .current-day-todos {
-  padding-top: 15px;
+  padding-top: 10px;
   margin: 5px;
   /*lägg till så att listan kan bli skrollbar*/
 }
 .current-day-todos {
   height: 300px;
 }
+li {
+  list-style: none;
+  color: white;
+}
+button {
+  position: relative;
+  bottom: 30px;
+  left: 260px;
+  height: 25px;
+  width: 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 50%;
+}
 .add-todo-day {
-  border-bottom: 1px solid white;
   border-top: 1px solid white;
 }
+.add-todo-box {
+    position: fixed;  
+    bottom: 20px;
+}
 .add-todo-day-field {
-  border: none;
+  border: none;  
+  border-bottom: 1px solid white;
   background: transparent;
   height: 34px;
   width: 100%;
@@ -110,9 +115,10 @@ button:focus {
 
 /* RIGHT SIDE*/
 .right-side {
-  max-width: 675px;
+  max-width: 65%;
   float: right;
   padding: 10px;
+  margin: auto;
   height: 100%;
 }
 main {
@@ -219,6 +225,17 @@ main {
   color: white;
   background: #6f2da8;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .right-side {
+        display: none;}
+    .left-side {
+        width: 100%;
+        height: 100%;
+    }    
+  }
+
 
 /* color: white finns på många ställen och kan omstruktureras och tas bort på många ställen  */
 /* hightlighta aktuell månad, veckodag och cell */

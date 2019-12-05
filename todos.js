@@ -38,12 +38,12 @@ function UpdateTime(){
     if (document.layers) { 
         document.layers.time.document.write(TotalTime); 
         document.layers.time.document.close(); 
-    }else if (document.all) { 
+    }
+    else if (document.all) { 
         time.innerHTML = TotalTime; 
     } 
 
     setTimeout("UpdateTime()", 1000) 
-
 }
 
 // The toDateString() method converts a date to a more readable format:
@@ -90,5 +90,5 @@ function showTodoOnScreen(todoText) {
 }
 
 // Lägg till så att det går att skrolla i todolistan om det finns många todos
-// Lägg till så att alla dagars todo listas under letandra i mobilvy 
+// Lägg till så att alla dagars todo listas under varandra i mobilvy 
 // Hightlighta aktuell månad, veckodag och cell 
