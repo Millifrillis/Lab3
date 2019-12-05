@@ -25,4 +25,5 @@ the date on the calendar also displays the amount of todos there is that day.
 5. above the list where the todos is you can see the date and time.
 
 https://github.com/millifrill/Lab3
+<br>
 https://millifrill.github.io/Lab3/
