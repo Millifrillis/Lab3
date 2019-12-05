@@ -1,4 +1,4 @@
-# lab3
+# lab3 - TodoCalendar
 # A calendar made with javascript, css and Html.
 
 The Calendar(project) is running it will display a calendar to the right and a todo list on the left.
@@ -23,3 +23,6 @@ the date on the calendar also displays the amount of todos there is that day.
 3. you can add Todos by typing in a todo and then clicking the + button. When you click the + button it adds the todo on the list.
 4. When a todo is on the list you can click the box to delete the todo.
 5. above the list where the todos is you can see the date and time.
+
+https://github.com/millifrill/Lab3
+https://millifrill.github.io/Lab3/
